@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>BackPack</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
 </head>
@@ -17,6 +18,10 @@
      <% end %>
 <%= yield %>
 
-
+<% if current_user  %>
+   <script type="text/javascript">
+         window.CURRENT_USER_ID = <%= current_user.id %>;
+    </script>
+  <% end %>
 </body>
 </html>

@@ -1,4 +1,4 @@
 (function(root) {
   'use strict';
-  root.AppDispatcher = new FluxDispatcher();
+  root.AppDispatcher = new Flux.Dispatcher();
 }(this));

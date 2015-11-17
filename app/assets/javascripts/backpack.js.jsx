@@ -2,10 +2,8 @@ $(function() {
   'use strict';
   var root = document.getElementById('content');
   if (!root) {
-    debugger;
     return;
   }
-  debugger;
    var Route = ReactRouter.Route;
    var Router = ReactRouter.Router;
    var IndexRoute = ReactRouter.IndexRoute;
