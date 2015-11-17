@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :authored_destinations,
+      class_name: :Destination,
+      foreign_key: :author_id,
+      primary_key: :id
+  has_many :users_destinations
+  has_many :users_groups
+  has_many :user_taggings
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

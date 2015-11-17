@@ -38,18 +38,18 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 
-## group_taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-group_id    | integer   | not null, foreign key (references groups), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
-
 ## user_taggings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed, unique [tag_id]
+tag_id      | integer   | not null, foreign key (references tags), indexed
+
+## destination_taggings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+destination_id     | integer   | not null, foreign key (references destinations), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## users
