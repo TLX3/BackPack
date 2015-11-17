@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117185359) do
+ActiveRecord::Schema.define(version: 20151117201347) do
 
   create_table "destination_taggings", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20151117185359) do
   create_table "destinations", force: :cascade do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
-    t.string   "picture_url", null: false
     t.string   "location",    null: false
     t.string   "cost",        null: false
     t.integer  "author_id",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "picture_url"
   end
 
   add_index "destinations", ["author_id"], name: "index_destinations_on_author_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20151117185359) do
   add_index "groups", ["destination_id"], name: "index_groups_on_destination_id"
 
   create_table "tags", force: :cascade do |t|
-    t.string   "CreateTags", null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

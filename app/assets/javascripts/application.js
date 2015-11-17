@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require react
+//= require react_ujs
+//= require ReactRouter.min
+//= require flux
+//= require eventemitter
+//= require underscore
+//= require components
+//= require_tree .

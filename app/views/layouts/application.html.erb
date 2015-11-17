@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SampleProjectProposalMaster</title>
+  <title>BackPack</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
   <% if logged_in? %>
     <%= button_to "Log out", session_url, method: :delete %>
   <% end %>
+
+
   <% if flash[:errors] != nil && !flash[:errors].empty? %>
      <p><%= flash.now[:errors] %></p>
      <% end %>
 <%= yield %>
+
 
 </body>
 </html>

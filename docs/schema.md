@@ -6,7 +6,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 description | text      | not null
-picture_url | string    | not null
+picture_url | string    | 
 location    | string    | not null
 cost        | string    | not null
 author_id   | integer   | not null, foreign key (references users), indexed
