@@ -1,0 +1,13 @@
+<h1> Sign up form <h1>
+<form action="<%=users_url%>" method="post">
+  <%= auth_token %>
+  <label for="user_name"> Username </label>
+  <input type="text" name="user[username]" id="user_name" value="<%= @user.name %>"
+  <br/>
+  <label for="pass"> Password </label>
+  <input type="password" name="user[password]" id="pass">
+  <br/>
+  <input type="submit" value="Sign Up">
+</form>
+
+<h2> Already registered? <a href="<%= new_session_url %>"> Log in </a> <h2>
