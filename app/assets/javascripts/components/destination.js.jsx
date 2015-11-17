@@ -15,6 +15,7 @@
       DestinationStore.removeChangeListener(this._onChange);
     },
     render: function () {
+      debugger;
       return (
         <div>
           <ul>
