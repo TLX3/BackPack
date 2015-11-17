@@ -6,4 +6,5 @@ module ApplicationHelper
         value="#{form_authenticity_token}">
         HTML
         html.html_safe
+  end
 end
