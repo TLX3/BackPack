@@ -2,13 +2,12 @@
   'use strict';
   root.Destination = React.createClass({
     getInitialState: function () {
-      return {competitions: DestinationStore.all()};
+      return {destinations: DestinationStore.all()};
     },
     _onChange: function () {
       this.setState({destinations: DestinationStore.all()});
     },
     componentDidMount: function () {
-      debugger;
       DestinationStore.addChangeListener(this._onChange);
       ApiUtil.fetchAllDestinations();
      },

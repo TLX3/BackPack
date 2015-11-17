@@ -2,8 +2,10 @@ $(function() {
   'use strict';
   var root = document.getElementById('content');
   if (!root) {
+    debugger;
     return;
   }
+  debugger;
    var Route = ReactRouter.Route;
    var Router = ReactRouter.Router;
    var IndexRoute = ReactRouter.IndexRoute;
@@ -13,7 +15,7 @@ $(function() {
        return (
          <div>
          <Navbar/>
-        <Destination/>          
+        <Destination/>
        {this.props.children}
          </div>
        );
