@@ -9,11 +9,14 @@ $(function() {
    var IndexRoute = ReactRouter.IndexRoute;
 
    var App = React.createClass({
+
      render: function(){
        return (
          <div>
-         <Navbar/>
+        <Navbar/>
+        <SearchBar/>
         <Destination/>
+        <Tag/>
        {this.props.children}
          </div>
        );

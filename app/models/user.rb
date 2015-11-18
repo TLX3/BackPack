@@ -11,6 +11,15 @@ class User < ActiveRecord::Base
   has_many :users_destinations
   has_many :users_groups
   has_many :user_taggings
+  has_many :destinations,
+    through: :users_destinations,
+    source: :destination
+  has_many :groups,
+    through: :users_groups,
+    source: :group
+  has_many :tags,
+    through: :user_taggings,
+    source: :tag
 
   attr_reader :password
 

@@ -8,4 +8,10 @@ class Destination < ActiveRecord::Base
   has_many :groups
   has_many :users_destinations
   has_many :destination_taggings
+  has_many :users,
+    through: :users_destinations,
+    source: :user
+  has_many :tags,
+    through: :destination_taggings,
+    source: :tag
 end

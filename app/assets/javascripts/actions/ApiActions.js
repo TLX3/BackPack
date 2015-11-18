@@ -6,6 +6,12 @@
         actionType: DestinationConstants.DESTINATIONS_RECEIVED,
         destinations: destinations
       });
+    },
+    receiveAllTags: function (tags) {
+      AppDispatcher.dispatch({
+        actionType: TagConstants.TAGS_RECEIVED,
+        tags: tags
+      });
     }
   };
 }(this));

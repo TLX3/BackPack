@@ -1,3 +1,5 @@
-json.array! @destinations do |destination|
-  json.extract! destination, :title, :description, :location, :cost, :author_id
+json.events do
+  json.array! @groups do |group|
+    json.extract! group, :description
+  end
 end

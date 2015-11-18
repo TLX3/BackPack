@@ -3,7 +3,20 @@ class Api::DestinationsController < ApplicationController
   end
 
   def index
-    @destinations = Destination.all
+    if params[:query].present?
+      @destinations = Destination.where("name ~ ?", params[:query])
+    else
+      @destinations = Destination.none
+    end
+  end
+
+  def search
+    if params[:query].present?
+      @destinations = Destination.where("name ~ ?", params[:query])
+    else
+      @destinations = Destination.none
+    end
+    render :index
   end
 
   def show

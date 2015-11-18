@@ -3,7 +3,7 @@
   var _destinations = [];
   var CHANGED_EVENT = "CHANGED_EVENT";
 
-  var resetCompetitions = function (destinations) {
+  var resetDestinations = function (destinations) {
     _destinations = destinations;
   };
 

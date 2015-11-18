@@ -9,15 +9,15 @@
     },
     componentDidMount: function () {
       DestinationStore.addChangeListener(this._onChange);
-      ApiUtil.fetchAllDestinations();
+      // ApiUtil.fetchAllDestinations();
      },
     componentWillUnmount: function () {
       DestinationStore.removeChangeListener(this._onChange);
     },
     render: function () {
-      debugger;
       return (
         <div>
+        <h3>Destination:</h3>
           <ul>
              {
               this.state.destinations.map(function (destination, idx) {
