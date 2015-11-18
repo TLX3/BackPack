@@ -6,8 +6,8 @@ class Destination < ActiveRecord::Base
     primary_key: :id
 
   has_many :groups
-  has_many :users_destinations
-  has_many :destination_taggings
+  has_many :users_destinations, dependent: :destroy
+  has_many :destination_taggings, dependent: :destroy
   has_many :users,
     through: :users_destinations,
     source: :user

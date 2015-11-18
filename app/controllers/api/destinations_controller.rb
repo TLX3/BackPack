@@ -8,7 +8,7 @@ class Api::DestinationsController < ApplicationController
         if query[:searchText]
           @destinations = Destination.where("name ~ ?", query[:searchText])
         elsif query[:getCurrentUserJoinedDestinations]
-          @destinations = Destination.joins(:users_destinations, :users).where("users.id = ?", current_user.id)
+          @destinations = current_user.destinations
         end
     else
       @destinations = Destination.all

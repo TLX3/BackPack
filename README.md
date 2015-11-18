@@ -14,10 +14,9 @@ and React.js. Meetup allows users to:
 - [X] Create an account
 - [X] Log in / Log out
 - [ ] Create, edit, delete, join, and leave destinations
-- [ ] Organize destinations by location, number of people, and cost
 - [ ] Tag groups and users with multiple tags
 - [ ] Show destinations and find destinations
-- [ ] Apply styling to destinations while editing
+- [ ] Apply styling using Bootstrap
 
 ## Design Docs
 * [View Wireframes][view]

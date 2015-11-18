@@ -13,7 +13,6 @@ $(function() {
      render: function () {
          return (
            <div className="container">
-             <Navbar/>
              {this.props.children}
            </div>
          );

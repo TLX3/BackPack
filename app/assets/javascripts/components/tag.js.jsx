@@ -9,6 +9,7 @@
     },
     componentDidMount: function () {
       TagStore.addChangeListener(this._onChange);
+      ApiUtil.fetchAllTags({fetchNone: true});
     },
     componentWillUnmount: function () {
       TagStore.removeChangeListener(this._onChange);

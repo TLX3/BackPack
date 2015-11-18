@@ -1,13 +1,22 @@
-<h1> Log in </h1>
-<form action="<%=session_url%>" method="post">
-  <%= auth_token %>
-  <label for="user_name"> Username </label>
-  <input type="text" name="user[username]" id="user_name" value=""
-  <br/>
-  <label for="pass"> Password </label>
-  <input type="password" name="user[password]" id="pass">
-  <br/>
-  <input type="submit" value="Log in">
-</form>
+<div class="row"> <div class="col-md-offset-4"> <h1> Log in </h1> </div> </div>
 
-<h2> Want to register? <a href="<%=new_user_url%>">Register</a> </h2>
+<div class="row">
+  <div class="col-md-offset-4 col-md-1">
+    <form action="<%=session_url%>" method="post">
+      <%= auth_token %>
+      <label for="user_name"> Username </label>
+      <input type="text" name="user[username]" id="user_name" value=""
+      <br/>
+      <label for="pass"> Password </label>
+      <input type="password" name="user[password]" id="pass">
+      <br/>
+      <input type="submit" value="Log in">
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-3">
+    <h3> Want to register? <a href="<%=new_user_url%>">Register</a> </h3>
+  </div>
+</div>

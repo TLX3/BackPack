@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
       class_name: :Destination,
       foreign_key: :author_id,
       primary_key: :id
-  has_many :users_destinations
-  has_many :users_groups
-  has_many :user_taggings
+  has_many :users_destinations, dependent: :destroy
+  has_many :users_groups, dependent: :destroy
+  has_many :user_taggings, dependent: :destroy, inverse_of: :user
   has_many :destinations,
     through: :users_destinations,
     source: :destination
