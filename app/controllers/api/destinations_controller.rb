@@ -3,20 +3,16 @@ class Api::DestinationsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      @destinations = Destination.where("name ~ ?", params[:query])
+    query = params[:query]
+      if query.present?
+        if query[:searchText]
+          @destinations = Destination.where("name ~ ?", query[:searchText])
+        elsif query[:getCurrentUserJoinedDestinations]
+          @destinations = Destination.joins(:users_destinations, :users).where("users.id = ?", current_user.id)
+        end
     else
-      @destinations = Destination.none
+      @destinations = Destination.all
     end
-  end
-
-  def search
-    if params[:query].present?
-      @destinations = Destination.where("name ~ ?", params[:query])
-    else
-      @destinations = Destination.none
-    end
-    render :index
   end
 
   def show

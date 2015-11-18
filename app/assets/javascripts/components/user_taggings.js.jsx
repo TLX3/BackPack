@@ -1,0 +1,32 @@
+(function(root) {
+  'use strict';
+  root.UserTags = React.createClass({
+    getInitialState: function () {
+      return {tags: TagStore.all()};
+    },
+    _onChange: function () {
+      this.setState({tags: TagStore.all()});
+    },
+    componentDidMount: function () {
+      TagStore.addChangeListener(this._onChange);
+      ApiUtil.fetchAllTags({getCurrentUserTags: true});
+    },
+    componentWillUnmount: function () {
+      TagStore.removeChangeListener(this._onChange);
+    },
+    render: function () {
+      return (
+        <div className="col-md-6">
+          <h3>Tags:</h3>
+          <ul>
+          {
+            this.state.tags.map(function (tag, idx) {
+              return <li key={idx}>{tag.name}</li>;
+            })
+          }
+          </ul>
+        </div>
+      );
+    }
+  });
+}(this));

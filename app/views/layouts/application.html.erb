@@ -19,9 +19,10 @@
 <%= yield %>
 
 <% if current_user  %>
-   <script type="text/javascript">
+   <script>
          window.CURRENT_USER_ID = <%= current_user.id %>;
     </script>
+
   <% end %>
 </body>
 </html>

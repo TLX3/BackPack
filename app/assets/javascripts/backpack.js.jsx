@@ -10,20 +10,21 @@ $(function() {
 
    var App = React.createClass({
 
-     render: function(){
-       return (
-         <div>
-        <Navbar/>
-        <SearchBar/>
-        <Destination/>
-        <Tag/>
-       {this.props.children}
-         </div>
-       );
+     render: function () {
+         return (
+           <div className="container">
+             <Navbar/>
+             {this.props.children}
+           </div>
+         );
      }
+
    });
    var routes = (
-     <Route path="/" component={App}></Route>
+     <Route path="/" component={App}>
+       <IndexRoute component={Index}/>
+       <Route path="profile" components={UserProfile}/>
+     </Route>
    );
    React.render(<Router>{routes}</Router>, root);
 });

@@ -2,12 +2,12 @@
   'use strict';
   root.SearchBar = React.createClass({
 
-     getInitialState: function () {
-       return {searchText: ""};
-     },
+    getInitialState: function () {
+      return {searchText: ""};
+    },
 
-     handleButtonClick: function () {
-      ApiUtil.fetchDestinationMatches(this.state.searchText);
+    handleButtonClick: function () {
+      ApiUtil.fetchDestinationMatches({searchText: this.state.searchText});
     },
 
     handleBarClick: function () {

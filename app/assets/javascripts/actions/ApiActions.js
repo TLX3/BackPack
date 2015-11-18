@@ -12,6 +12,12 @@
         actionType: TagConstants.TAGS_RECEIVED,
         tags: tags
       });
+    },
+    receiveSingleUser: function (user) {
+      AppDispatcher.dispatch({
+        actionType: UserConstants.CURRENT_USER_RECEIVED,
+        user: [user]
+      });
     }
   };
 }(this));

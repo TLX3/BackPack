@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "static_pages#index"
-  resources :users, only: [:create, :new]
+  resources :users, only: [:create, :new, :show]
   resource :session, only: [:create, :destroy, :new]
   resources :static_pages, only: [:index]
   namespace :api, defaults: {format: :json} do
@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :group_taggings, only: [:index]
     resources :user_taggings, only: [:index]
   end
-  
+
 end

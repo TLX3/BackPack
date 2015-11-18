@@ -1,5 +1,13 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all
-  end
+    query = params[:query]
+       if query.present?
+         if query[:getCurrentUserTags]
+           @tags = Tag.joins(:user_taggings, :users)
+                                .where("users.id = ?", current_user.id)
+         end
+       else
+         @tags = Tag.all
+       end
+     end
 end

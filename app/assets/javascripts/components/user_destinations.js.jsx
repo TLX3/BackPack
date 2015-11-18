@@ -1,6 +1,6 @@
 (function(root) {
   'use strict';
-  root.Destination = React.createClass({
+  root.UserDestinations = React.createClass({
     getInitialState: function () {
       return {destinations: DestinationStore.all()};
     },
@@ -9,22 +9,22 @@
     },
     componentDidMount: function () {
       DestinationStore.addChangeListener(this._onChange);
-      ApiUtil.fetchDestinationMatches();
-     },
+      ApiUtil.fetchDestinationMatches({getCurrentUserJoinedDestinations: true});
+    },
     componentWillUnmount: function () {
       DestinationStore.removeChangeListener(this._onChange);
     },
     render: function () {
       return (
-        <div>
-        <h3>Destination:</h3>
-          <ul>
-             {
-              this.state.destinations.map(function (destination, idx) {
-                return <li key={idx}>{destination.title}</li>;
-              })
-            }
-          </ul>
+        <div className="row">
+            <h3>Destinations:</h3>
+            <ul>
+              {
+                this.state.destinations.map(function (destination, idx) {
+                  return <li key={idx}>{destination.name}</li>;
+                })
+              }
+            </ul>
         </div>
       );
     }
