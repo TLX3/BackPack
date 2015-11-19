@@ -13,9 +13,12 @@ and React.js. Meetup allows users to:
 
 - [X] Create an account
 - [X] Log in / Log out
+- [X] Create User Profile
+- [ ] Message other Users
 - [ ] Create, edit, delete, join, and leave destinations
 - [ ] Tag groups and users with multiple tags
-- [ ] Show destinations and find destinations
+- [X] Show destinations
+- [ ] Find destinations
 - [ ] Apply styling using Bootstrap
 
 ## Design Docs
@@ -27,36 +30,34 @@ and React.js. Meetup allows users to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Models, and JSON API (1.5 days)
+### Phase 1: User Authentication, Models, and JSON API (1 day)
 
 In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
 container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Events.
+front end, I will begin by setting up a full JSON API for the models.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Destination CRUD (2.5 days)
+### Phase 2: Flux Architecture and Destination, User, Groups, and Tags CRUD (3 days)
 
 Phase 2 is focused on setting up Flux, the React Router, and the React view
 structure for the main application. After the basic Flux architecture has been
-set up, an Destination store will be implemented and a set of actions corresponding to
+set up, an corresponding stores will be implemented and a set of actions corresponding to
 the needed CRUD functionality created. Once this is done, I will create React
-views for the Destination `Index`, `IndexItem` and `Form`. At the end of Phase 2,
-Destinations can be created, edited, and destroyed in the browser. Destinations should
-save to the database when the form loses focus or is left idle after editing.
+views for the resources. By the end of phase 2, Groups and Users can be
+tagged with multiple tags. Users can bring up Destinations in a `SearchIndex`
+view.
 
 [Details][phase-two]
 
-### Phase 3: Groups and Tags (3 days)
+### Phase 3: User Profiles, Destination Profiles, and User Messaging  (3 days)
+Phase 3 will allow users to build and edit their profile. Also, users can build and edit their destination profile. Once this phase is complete, users can view a destination's description, location, groups, and picture. Users will also be able to create and join a destination
 
-Phase 3 adds CRUD for an user's groups and tags. Groups and Users can be
-tagged with multiple tags. Users can bring up Destinations in a separate `SearchIndex`
-view by searching for their tags.
 
 [Details][phase-three]
 
-### Phase 4: Allow Complex Styling in Events (1 day)
+### Phase 4: Allow Complex Styling (2 day)
 
 Using quill.js, allow for complex styling of Destinations.
 
