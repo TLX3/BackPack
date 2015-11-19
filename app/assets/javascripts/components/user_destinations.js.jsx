@@ -17,14 +17,16 @@
     render: function () {
       return (
         <div className="row">
+          <div className="col-md-7">
             <h3>Destinations:</h3>
-            <ul>
-              {
-                this.state.destinations.map(function (destination, idx) {
-                  return <li key={idx}>{destination.name}</li>;
-                })
-              }
-            </ul>
+              <ul>
+                {
+                  this.state.destinations.map(function (destination, idx) {
+                    return <li key={idx}>{destination.name}</li>;
+                  })
+                }
+              </ul>
+            </div>
         </div>
       );
     }

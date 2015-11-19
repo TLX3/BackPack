@@ -5,7 +5,9 @@
       return (
         <div className="row">
           <UserInfo/>
-          <UserTags/>
+          <div className="row">
+            <UserTags/>
+          </div>
         </div>
       );
     }

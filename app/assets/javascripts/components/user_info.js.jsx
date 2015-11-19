@@ -15,16 +15,32 @@
       UserStore.removeCurrentUserReceivedListener(this._onChange);
     },
     render: function () {
-
+      var username = "";
+      var bio = "";
+      var memberSince = "";
+      if (this.state.user) {
+        name = this.state.user.name;
+        bio = this.state.user.bio;
+        memberSince = this.state.user.created_at;
+      }
       return (
+        <div className="col-md-7">
           <div className="row">
-              <h3>username</h3>
-          <div className="row">
-              <h3>Location: </h3>
-              <h3>BackPack member since: </h3>
+            <div className="col-md-3">
+              <h2>{username}</h2>
+            </div>
           </div>
           <div className="row">
+            <div className="col-md-5">
+              <h3>CompeteUp member since: </h3>
+              {memberSince}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-7">
               <h3>Bio: </h3>
+              {bio}
+            </div>
           </div>
           <UserDestinations/>
         </div>
