@@ -8,10 +8,6 @@
 
 </head>
 <body>
-  <!-- <% if logged_in? %>
-    <%= button_to "Log out", session_url, method: :delete %>
-  <% end %> -->
-
 
   <% if flash[:errors] != nil && !flash[:errors].empty? %>
      <p><%= flash.now[:errors] %></p>

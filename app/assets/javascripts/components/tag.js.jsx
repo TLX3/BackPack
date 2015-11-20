@@ -17,7 +17,9 @@
     render: function () {
       return (
         <div>
+
           <h3>Tags:</h3>
+
           <ul>
             {
               this.state.tags.map(function (tag, idx) {

@@ -52,7 +52,10 @@ view.
 [Details][phase-two]
 
 ### Phase 3: User Profiles, Destination Profiles, and User Messaging  (3 days)
-Phase 3 will allow users to build and edit their profile. Also, users can build and edit their destination profile. Once this phase is complete, users can view a destination's description, location, groups, and picture. Users will also be able to create and join a destination
+
+Phase 3 will allow users to build and edit their profile. Also, users can build and edit their destination profile.
+Once this phase is complete, users can view a destination's description, location, groups, and picture.
+Users will also be able to create and join a destination
 
 
 [Details][phase-three]
@@ -63,7 +66,7 @@ Using quill.js, allow for complex styling of Destinations.
 
 [Details][phase-four]
 
-### Phase 5: Styling Cleanup and Seeding (1 day)
+### Phase 4: Allow Complex Styling (2 day)
 
 Phase 5 I will add styling flourishes and make modals out of some elements .
 
