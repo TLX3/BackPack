@@ -6,8 +6,9 @@
       ApiUtil.logOut();
     },
     render: function () {
+      var url = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p50x50/17197_973116516046296_1926579651899671635_n.jpg?oh=0894c27976de748a47b492ea25f7e329&oe=56E8CDD1&__gda__=1458139388_12198fe7dcff1fff0362ea7e3356a5fa";
       return (
-        <nav className="navbar navbar-default">
+        <nav className="navbar navbar-default override-navbar">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed"
@@ -19,19 +20,20 @@
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">BACKPACK LOGO</a>
+              <a className="navbar-brand" href="#"></a>
+              <Link to="/"><img src={url} alt="logo" id="logo"/></Link>
             </div>
             <div className="collapse navbar-collapse"
               id="example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a href="#">Find a Destination</a></li>
-                <li><Link to="/createDestination">Create a Destination</Link></li>
+                <li><a href="#"><strong>Find</strong> a Destination</a></li>
+                <li><Link to="/createDestination"><strong>Create</strong> a Destination</Link></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li className="dropdown">
                   <a href="#/profile" className="dropdown-toggle"
                     data-toggle="dropdown" role="button"
-                    aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false" id="dropdown">
                       Welcome, user {window.CURRENT_USER_ID}
                       <span className="caret"></span>
                   </a>

@@ -15,3 +15,81 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background: #f4f4f4;
+}
+
+.override-navbar {
+  background-color: white;
+  background-image: none;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+
+#logo {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
+}
+
+.navbar-nav > li > a {
+  color: #B6B6B4
+}
+
+.navbar-right > li > a {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.navbar-default .navbar-nav > li:hover {
+  background-color: red;
+  a {
+    color: white;
+    strong {
+      color: white;
+    }
+  }
+  .dropdown-menu > li > a {
+    color: red;
+  }
+}
+
+.navbar-nav li strong {
+    font-size: 30px;
+    color: red;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.navbar-default .navbar-right > li {
+  top: 20px;
+  right: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  &:hover {
+    background: white;
+    span {
+      color: red;
+    }
+  }
+  a {
+    border: 2px solid #B6B6B4;
+    border-radius: 13px;
+  }
+  .dropdown-menu {
+    a {
+      border: none;
+      &:hover {
+        background: red;
+        color: white;
+      }
+    }
+  }
+}
+
+#dropdown {
+  background: white;
+ }
