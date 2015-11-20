@@ -42,7 +42,7 @@
           <div className="row form-group">
             <div className="col-md-offset-3 col-md-6">
               <label>Description:</label>
-                <input type="text" className="form-control" valueLink={this.linkState("description")}/>
+                <textarea className="form-control" valueLink={this.linkState("description")}></textarea>
             </div>
           </div>
 
