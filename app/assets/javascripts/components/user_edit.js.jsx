@@ -58,11 +58,11 @@
             </div>
           </div>
           <div className="row">
-            <div className="col-md-offset-3 col-md-6">
+            <div className="col-md-offset-3 col-md-5">
               <div className="row">
                 <button type="submit" className="btn btn-default">Update User</button>
               </div>
-              <div className="row">
+              <div className="col-md-4">
                <Link to="profile" className="btn btn-default">Cancel</Link>
               </div>
             </div>

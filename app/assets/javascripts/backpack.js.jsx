@@ -22,8 +22,9 @@ $(function() {
    var routes = (
      <Route path="/" component={App}>
        <IndexRoute component={Index}/>
-       <Route path="profile" components={UserProfile}/>
-       <Route path="profile/edit" components={UserEdit}/>
+       <Route path="profile" component={UserProfile}/>
+       <Route path="profile/edit" component={UserEdit}/>
+       <Route path="createDestination" component={CreateDestination}/>
      </Route>
    );
    React.render(<Router>{routes}</Router>, root);
