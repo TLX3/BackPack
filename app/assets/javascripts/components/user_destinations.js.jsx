@@ -22,7 +22,7 @@
               <ul>
                 {
                   this.state.destinations.map(function (destination, idx) {
-                    return <li key={idx}>{destination.name}</li>;
+                    return <li key={idx}>{destination.title}</li>;
                   })
                 }
               </ul>

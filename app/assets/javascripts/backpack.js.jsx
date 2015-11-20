@@ -25,6 +25,7 @@ $(function() {
        <Route path="profile" component={UserProfile}/>
        <Route path="profile/edit" component={UserEdit}/>
        <Route path="createDestination" component={CreateDestination}/>
+       <Route path="destinations/:id" component={DestinationProfile}/>
      </Route>
    );
    React.render(<Router>{routes}</Router>, root);

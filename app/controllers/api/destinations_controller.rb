@@ -12,15 +12,16 @@ class Api::DestinationsController < ApplicationController
 
   def index
     query = params[:query]
+    puts query
       if query.present?
         if query[:searchText]
-          @destinations = Destination.where("name ~ ?", query[:searchText])
+          @destinations = Destination.where("lower(title) ~ ?", query[:searchText].downcase)
         elsif query[:getCurrentUserJoinedDestinations]
           @destinations = current_user.destinations
         end
-    else
-      @destinations = Destination.all
-    end
+      else
+        @destinations = Destination.all
+      end
   end
 
   def show

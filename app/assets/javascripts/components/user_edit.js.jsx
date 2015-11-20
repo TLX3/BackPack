@@ -27,7 +27,7 @@
     handleSubmit: function (e) {
       e.preventDefault();
       var user = {};
-      user.name = this.state.name;
+      user.username = this.state.username;
       user.bio = this.state.bio;
       ApiUtil.updateCurrentUser(user);
     },
