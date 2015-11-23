@@ -14,6 +14,9 @@
     addChangeListener: function (callback) {
       DestinationStore.on(CHANGED_EVENT, callback);
     },
+    getCurrentDestination: function(){
+      return _.first(_destinations);
+    },
     removeChangeListener: function (callback) {
       DestinationStore.removeListener(CHANGED_EVENT, callback);
     },

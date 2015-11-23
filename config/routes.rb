@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy, :new]
   resources :static_pages, only: [:index]
   namespace :api, defaults: {format: :json} do
-    resources :destinations, only: [:create, :index, :show, :update]
+    resources :destinations, only: [:create, :index, :update]
     resources :groups, only: [:index, :show]
     resources :tags, only: [:create, :destroy, :index]
     resources :group_taggings, only: [:index]

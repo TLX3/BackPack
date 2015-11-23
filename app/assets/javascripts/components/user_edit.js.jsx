@@ -2,7 +2,7 @@
   'use strict';
   var Link = ReactRouter.Link;
   root.UserEdit = React.createClass({
-    mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
+    mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
       return {username: "", bio: "", errors: []};
     },
@@ -18,7 +18,7 @@
     _onReceiveMessage: function () {
       var message = MessageStore.getMessage();
       if (message.status < 400) {
-        this.history.pushState(null, "/profile");
+        this.props.history.pushState(null, "/profile");
       }
       else {
         this.setState({errors: message.responseJSON});

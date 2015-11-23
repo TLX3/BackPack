@@ -18,6 +18,8 @@ class Api::DestinationsController < ApplicationController
           @destinations = Destination.where("lower(title) ~ ?", query[:searchText].downcase)
         elsif query[:getCurrentUserJoinedDestinations]
           @destinations = current_user.destinations
+        elsif query[:getCurrentDestination]
+          @destinations = Destination.where("id = ?", query[:getCurrentDestination])
         end
       else
         @destinations = Destination.all
@@ -25,6 +27,7 @@ class Api::DestinationsController < ApplicationController
   end
 
   def show
+    @destination = Destination.find(params[:id])
   end
 
   def update
