@@ -1,5 +1,6 @@
 (function(root) {
   'use strict';
+  var Link = ReactRouter.Link;
   root.Destination = React.createClass({
     getInitialState: function () {
       return {destinations: DestinationStore.all()};
@@ -19,10 +20,16 @@
       var finished = [];
       var destinationsForRow = [];
       _.each(this.state.destinations, function (destination, idx) {
+        if (typeof this.state.destination !== "undefined") {
+          if (this.state.destination.picture_url) {
+            publicId = this.state.destination.picture_url;
+         }
+       }
         destinationsForRow.push(
           <div key={idx} className="col-md-4">
-              <img src={src}
-                 height="100px"></img>
+            <Link to={"destinations/" + destination.id}>
+              <img src={src}></img>
+            </Link>
                <h4>{destination.title}</h4>
           </div>
         );

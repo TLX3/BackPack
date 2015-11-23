@@ -25,8 +25,13 @@ $(function() {
        <Route path="profile" component={UserProfile}/>
        <Route path="profile/edit" component={UserEdit}/>
        <Route path="createDestination" component={CreateDestination}/>
-       <Route path="destinations/:id" component={DestinationProfile}/>
        <Route path="profile/editTags" component={UserEditTags}/>
+         <Route path="competitions/:id" component={DestinationProfile}>
+          <IndexRoute component={DestinationHome}/>
+          <Route path="members" component={DestinationMembers}/>
+          <Route path="photos" component={DestinationPictures}/>
+          <Route path="join" component={JoinDestination}/>
+        </Route>
      </Route>
    );
    React.render(<Router>{routes}</Router>, root);
