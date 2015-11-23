@@ -31,11 +31,16 @@
       switch (payload.actionType) {
         case MessageConstants.MESSAGE_RECEIVED:
           resetMessages(payload.message);
-          addNotification("Update Successful!");
+          if(!payload.flashNow){
+          addNotification(payload.message.responseJSON);
+          }
           MessageStore.emit(CHANGE_EVENT);
          break;
         case MessageConstants.ERROR_RECEIVED:
           resetMessages(payload.error);
+          if(!payload.flashNow){
+          addNotification(payload.error.responseJSON);
+          }
           MessageStore.emit(CHANGE_EVENT);
           break;
       }

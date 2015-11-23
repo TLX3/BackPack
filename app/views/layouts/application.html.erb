@@ -16,7 +16,12 @@
 
 <% if current_user  %>
    <script>
+      <% tags = [] %>
+      <% Tag.select(:name, :id).each do |tag| %>
+        <% tags << tag %>
+        <% end %>
          window.CURRENT_USER_ID = <%= current_user.id %>;
+         window.TAGS = <%= tags.to_json.html_safe %>;
     </script>
 
   <% end %>

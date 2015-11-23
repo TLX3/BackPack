@@ -1,4 +1,5 @@
 class Api::TagsController < ApplicationController
+
   def index
     query = params[:query]
        if query.present?
@@ -11,5 +12,16 @@ class Api::TagsController < ApplicationController
        else
          @tags = Tag.all
        end
-     end
+  end
+
+  def destroy
+    @tag = Tag.find_by_name(params[:name])
+    if @tag.present?
+      new_tag_ids = current_user.tag_ids - [@tag.id]
+      current_user.tag_ids = new_tag_ids
+      render json: {responseJSON: "Tag #{params[:name]} removed", status: 200}
+    else
+      render json: {responseJSON: "Tag does not exist", status: :unprocessable_entity}
+    end
+  end
 end
