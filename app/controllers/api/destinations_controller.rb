@@ -1,12 +1,18 @@
 class Api::DestinationsController < ApplicationController
 
   def create
-    @destination = Destination.new(destination_params.merge({author_id: current_user.id}))
-    if @destination.save
-      current_user.destination_ids += [@destination.id]
-      render json: {responseJSON: "Destination #{params[:title]} created", status: 200}
+    join_destination = params[:joinDestination]
+    if (join_destination)
+      current_user.destination_ids = (current_user.destination_ids + [join_destination[:id]]).uniq
+      render json: {responseJSON: "Destination joined", status: 200}
     else
-      render json: @destination.errors.full_messages, status: :unprocessable_entity
+      @destination = Destination.new(destination_params.merge({author_id: current_user.id}))
+      if @destination.save
+        current_user.destination_ids += [@destination.id]
+        render json: {responseJSON: "Destination #{params[:name]} created", status: 200}
+      else
+        render json: @destination.errors.full_messages, status: :unprocessable_entity
+      end
     end
   end
 

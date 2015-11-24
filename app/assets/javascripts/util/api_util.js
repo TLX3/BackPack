@@ -91,7 +91,7 @@
         url: "/api/destinations/",
         type: "POST",
         dataType: "json",
-        data: {destination: destination},
+        data: {joinDestination: destination},
         success: function (message) {
           ApiActions.sendMessage(message, false);
         },

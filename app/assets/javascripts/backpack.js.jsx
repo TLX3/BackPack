@@ -33,7 +33,7 @@ $(function() {
           <IndexRoute component={DestinationHome}/>
           <Route path="members" component={DestinationMembers}/>
           <Route path="photos" component={DestinationPictures}/>
-          <Route path="join" component={JoinDestination}/>
+          <Route path="join" component={DestinationJoin}/>
         </Route>
      </Route>
    );

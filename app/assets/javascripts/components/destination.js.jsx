@@ -16,7 +16,7 @@
       DestinationStore.removeChangeListener(this._onChange);
     },
     render: function () {
-      var src = "http://cdni.condenast.co.uk/646x430/d_f/FregateIslandPrivate_cnt_12_646x430.jpg";
+      // var src = "http://cdni.condenast.co.uk/646x430/d_f/FregateIslandPrivate_cnt_12_646x430.jpg";
       var finished = [];
       var destinationsForRow = [];
       _.each(this.state.destinations, function (destination, idx) {
@@ -29,7 +29,7 @@
         destinationsForRow.push(
           <div key={idx} className="col-md-4">
             <Link to={"destinations/" + destination.id}>
-              <img src={src}></img>
+              <img src={url}></img>
             </Link>
                <h4>{destination.title}</h4>
           </div>
