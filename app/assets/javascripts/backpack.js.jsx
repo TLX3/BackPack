@@ -26,6 +26,7 @@ $(function() {
        <Route path="profile/edit" component={UserEdit}/>
        <Route path="createDestination" component={CreateDestination}/>
        <Route path="profile/editTags" component={UserEditTags}/>
+       <Route path="profile/editProfilePic" component={UserEditProfilePic}/>
          <Route path="competitions/:id" component={DestinationProfile}>
           <IndexRoute component={DestinationHome}/>
           <Route path="members" component={DestinationMembers}/>

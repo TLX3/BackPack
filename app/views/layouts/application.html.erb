@@ -22,6 +22,7 @@
         <% end %>
          window.CURRENT_USER_ID = <%= current_user.id %>;
          window.TAGS = <%= tags.to_json.html_safe %>;
+         $.cloudinary.config("cloud_name", "dbgfyqa1e");
     </script>
 
   <% end %>

@@ -6,6 +6,9 @@
         <div className="row">
           <UserInfo/>
           <div className="row">
+            <UserProfilePicture/>
+          </div>
+          <div className="row">
             <UserTags/>
           </div>
         </div>

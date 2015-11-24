@@ -20,5 +20,7 @@
 //= require flux
 //= require eventemitter
 //= require underscore
+//= require cloudinary
+//= require jquery_cloudinary
 //= require components
 //= require_tree .
