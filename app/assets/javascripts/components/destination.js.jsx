@@ -29,7 +29,7 @@
         destinationsForRow.push(
           <div key={idx} className="col-md-4">
             <Link to={"destinations/" + destination.id}>
-              <img src={url}></img>
+              <img alt={destination.title} src={url}></img>
             </Link>
                <h4>{destination.title}</h4>
           </div>
