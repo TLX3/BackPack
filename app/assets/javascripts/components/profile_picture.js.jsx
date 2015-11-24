@@ -3,10 +3,10 @@
   var Link = ReactRouter.Link;
   root.UserProfilePicture = React.createClass({
     getInitialState: function () {
-      return {user: UserStore.getCurrentUser()};
+      return {user: UserStore.getUser()};
     },
     _onChange: function () {
-      this.setState({user: UserStore.getCurrentUser()});
+      this.setState({user: UserStore.getUser()});
     },
     componentWillMount: function () {
       UserStore.addCurrentUserReceivedListener(this._onChange);
@@ -16,7 +16,7 @@
       UserStore.removeCurrentUserReceivedListener(this._onChange);
     },
     render: function () {
-    var publicId = "blank-profile_ox71we";
+      var publicId = "";
      if (typeof this.state.user !== "undefined") {
        publicId = this.state.user.picture_url;
      }

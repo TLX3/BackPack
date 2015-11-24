@@ -23,6 +23,17 @@
         }
       });
     },
+    fetchUser: function (userParams) {
+      $.ajax({
+        url: "/users/" + window.CURRENT_USER_ID,
+        type: "GET",
+        dataType: "json",
+        data: {user: userParams},
+        success: function (user) {
+          ApiActions.receiveSingleUser(user);
+        }
+      });
+    },
     fetchCurrentUser: function () {
       $.ajax({
         url: "/users/" + window.CURRENT_USER_ID,

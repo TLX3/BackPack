@@ -3,7 +3,7 @@
   var Link = ReactRouter.Link;
   root.UserEditProfilePic = React.createClass({
     getInitialState: function () {
-      return {user: UserStore.getCurrentUser(),
+      return {user: UserStore.getUser(),
               errors: ""};
     },
     componentWillMount: function () {
@@ -16,7 +16,7 @@
       MessageStore.removeChangeListener(this._onReceiveMessage);
     },
     _onChange: function () {
-      this.setState({user: UserStore.getCurrentUser()});
+      this.setState({user: UserStore.getUser()});
     },
     _onReceiveMessage: function () {
       var message = MessageStore.getMessage();
@@ -53,7 +53,7 @@
       if (this.state.errors.length > 0) {
         errorText = <h3>{this.state.errors.join(", ")}</h3>;
       }
-      var publicId = "blank-profile_ox71we.png";
+      var publicId ="";
       if (typeof this.state.user !== "undefined") {
         publicId = this.state.user.picture_url || url;
       }

@@ -27,7 +27,7 @@
             <div className="collapse navbar-collapse"
               id="example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a href="#"><strong>Find</strong> a Destination</a></li>
+                <li><Link to="/find"><strong>Find</strong> a Destination</Link></li>
                 <li><Link to="/createDestination"><strong>Create</strong> a Destination</Link></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">

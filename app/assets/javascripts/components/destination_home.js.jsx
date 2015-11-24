@@ -2,7 +2,11 @@
   'use strict';
   root.DestinationHome = React.createClass({
     render: function () {
-      return <h1>Home</h1>;
+      return (
+        <RB.Grid>
+          <h2>Groups</h2>
+        </RB.Grid>
+      );
     }
   });
 }(this));

@@ -7,7 +7,7 @@
       return {username: "", bio: "", errors: []};
     },
     _onChange: function () {
-      var user = UserStore.getCurrentUser();
+      var user = UserStore.getUser();
       this.setState(
         {
           name: user.username,

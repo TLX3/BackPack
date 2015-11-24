@@ -12,10 +12,8 @@
         case "photos":
           selectedKey = 3;
         break;
-        default:
-          selectedKey = 1;
       }
-      return {destination: {},
+      return {destination: {id: this.props.params.id},
               selectedKey: selectedKey};
     },
     componentWillMount: function () {
@@ -35,17 +33,17 @@
      },
      render: function () {
        return (
-         <div className="container">
-           <DestinationNavbar selectedKey={this.state.selectedKey} name={this.state.destination.name} handleSelect={this.handleDestinationNavbarSelect}/>
-           <div className="row">
-              <div className="col-md-4">
+          <RB.Grid>
+           <DestinationNavbar selectedKey={this.state.selectedKey} name={this.state.destination.title} handleSelect={this.handleDestinationNavbarSelect}/>
+           <RB.Row>
+              <RB.Col>
                 <DestinationSidebar />
-              </div>
-              <div className="col-md-8">
+              </RB.Col>
+              <RB.Col>
                 {this.props.children}
-               </div>
-           </div>
-         </div>
+              </RB.Col>
+           </RB.Row>
+         </RB.Grid>
       );
      }
    });

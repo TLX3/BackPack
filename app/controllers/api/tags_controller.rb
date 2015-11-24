@@ -8,6 +8,9 @@ class Api::TagsController < ApplicationController
            @tags = current_user.tags
          elsif query[:fetchNone]
           @tags = Tag.none
+        elsif query[:getCurrentDestinationTags]
+          destination = Destination.find(query[:getCurrentDestinationTags])
+          @tags = destination.tags
          end
        else
          @tags = Tag.all

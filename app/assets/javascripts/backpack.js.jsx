@@ -22,12 +22,13 @@ $(function() {
    var routes = (
      <Route path="/" component={App}>
        <IndexRoute component={Index}/>
+       <Route path="find" component={Index}/>
        <Route path="profile" component={UserProfile}/>
        <Route path="profile/edit" component={UserEdit}/>
        <Route path="createDestination" component={CreateDestination}/>
        <Route path="profile/editTags" component={UserEditTags}/>
        <Route path="profile/editProfilePic" component={UserEditProfilePic}/>
-         <Route path="competitions/:id" component={DestinationProfile}>
+         <Route path="destinations/:id" component={DestinationProfile}>
           <IndexRoute component={DestinationHome}/>
           <Route path="members" component={DestinationMembers}/>
           <Route path="photos" component={DestinationPictures}/>

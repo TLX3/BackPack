@@ -11,7 +11,7 @@
     all: function () {
       return _users.slice(0);
     },
-    getCurrentUser: function () {
+    getUser: function () {
       return _.first(_users);
     },
     addCurrentUserReceivedListener: function (callback) {
