@@ -12,7 +12,8 @@ $(function() {
 
      render: function () {
          return (
-           <div className="container">
+           <div>
+             <Navbar/>
              {this.props.children}
            </div>
          );

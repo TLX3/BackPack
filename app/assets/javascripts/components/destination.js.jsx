@@ -20,11 +20,12 @@
       var finished = [];
       var destinationsForRow = [];
       _.each(this.state.destinations, function (destination, idx) {
-        if (typeof this.state.destination !== "undefined") {
-          if (this.state.destination.picture_url) {
-            publicId = this.state.destination.picture_url;
-         }
-       }
+        var publicId = "";
+        if (destination.picture_url) {
+            publicId = destination.picture_url;
+        }
+        var url = $.cloudinary.url(publicId,{ width: 350, crop: 'fill', radius: 20});
+
         destinationsForRow.push(
           <div key={idx} className="col-md-4">
             <Link to={"destinations/" + destination.id}>
@@ -43,10 +44,10 @@
         }
       }, this);
       return (
-        <div>
-        <h3>Destinations:</h3>
-        {finished}
-        </div>
+        <RB.Grid className="main-content">
+          <h3>Destinations:</h3>
+          {finished}
+        </RB.Grid>
       );
     }
   });

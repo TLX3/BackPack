@@ -21,6 +21,8 @@
         <% tags << tag %>
         <% end %>
          window.CURRENT_USER_ID = <%= current_user.id %>;
+        // window.CURRENT_USER_INFO = <%= "{id: #{current_user.id}, profilePicUrl: #{current_user.picture_url || 0}, username: '#{current_user.username}'}".html_safe %>;
+
          window.TAGS = <%= tags.to_json.html_safe %>;
          $.cloudinary.config("cloud_name", "dbgfyqa1e");
     </script>

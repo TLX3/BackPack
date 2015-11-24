@@ -42,6 +42,7 @@
     },
     render: function () {
       return (
+        <RB.Grid>
         <form onSubmit={this.handleSubmit}>
           <div className="row form-group">
             <div className="col-md-offset-3 col-md-6">
@@ -68,6 +69,7 @@
             </div>
           </div>
         </form>
+      </RB.Grid>
       );
     }
   });

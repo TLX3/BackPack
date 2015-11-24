@@ -3,15 +3,19 @@
   root.UserProfile = React.createClass({
     render: function () {
       return (
+        <RB.Grid>
         <div className="row">
           <UserInfo/>
-          <div className="row">
-            <UserProfilePicture/>
-          </div>
-          <div className="row">
-            <UserTags/>
+          <div className="col-md-5">
+            <div className="row">
+              <UserProfilePicture/>
+            </div>
+            <div className="row">
+              <UserTags/>
+            </div>
           </div>
         </div>
+        </RB.Grid>
       );
     }
   });

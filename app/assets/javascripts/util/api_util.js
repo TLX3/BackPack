@@ -86,6 +86,20 @@
         }
       });
     },
+    joinDestination: function (destination) {
+      $.ajax({
+        url: "/api/destinations/",
+        type: "POST",
+        dataType: "json",
+        data: {destination: destination},
+        success: function (message) {
+          ApiActions.sendMessage(message, false);
+        },
+        error: function (error) {
+          ApiActions.sendError(error, true);
+        }
+      });
+    },
     logOut: function () {
       $.ajax({
         url: "/session",

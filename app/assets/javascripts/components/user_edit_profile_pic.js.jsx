@@ -61,6 +61,7 @@
                                 { width: 100, height: 150, crop: 'fill',
                                   radius: 20});
       return (
+        <RB.Grid>
         <form onSubmit={this.handleSubmit}>
           <img src={url} alt="Profile Pic"/>
           <div className="row form-group">
@@ -82,6 +83,7 @@
             </div>
           </div>
         </form>
+      </RB.Grid>
       );
     }
   });
