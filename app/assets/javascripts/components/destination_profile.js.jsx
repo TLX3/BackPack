@@ -13,7 +13,7 @@
           selectedKey = 3;
         break;
       }
-      return {destination: {id: this.props.params.id},
+      return {destination: {},
               selectedKey: selectedKey};
     },
     componentWillMount: function () {
@@ -25,6 +25,11 @@
     componentWillUnmount: function () {
       DestinationStore.removeChangeListener(this._onChange);
       MessageStore.removeChangeListener(this._onReceiveMessage);
+    },
+     componentWillReceiveProps: function (nextProps) {
+      this.state.selectedKey = 1;
+      ApiUtil.fetchDestinationMatches({getCurrentDestination: nextProps.params.id});
+      this.basePath = "/destinations/" + nextProps.params.id + "/";
     },
     _onChange: function () {
       this.setState({destination: DestinationStore.getCurrentDestination()});
@@ -45,21 +50,25 @@
       }
      },
      render: function () {
-       var destinationJoined = "";
-       return (
+       var rendered = <RB.Grid></RB.Grid>;
+      if (this.state.destination.title) {
+        rendered = (
           <RB.Grid>
-           <DestinationNavbar selectedKey={this.state.selectedKey} name={this.state.destination.title} handleSelect={this.handleDestinationNavbarSelect}/>
-           <RB.Row>
-             {destinationJoined}
+            <DestinationNavbar selectedKey={this.state.selectedKey}
+                               name={this.state.destination.title}
+                               handleSelect={this.handleDestinationNavbarSelect}/>
+            <RB.Row>
               <RB.Col md={4}>
-                <DestinationSidebar {...this.state.destinations}/>
+                <DestinationSidebar {...this.state.destination}/>
               </RB.Col>
               <RB.Col md={8}>
                 {this.props.children}
               </RB.Col>
-           </RB.Row>
-         </RB.Grid>
-      );
+            </RB.Row>
+          </RB.Grid>
+        );
+      }
+      return rendered;
      }
    });
  }(this));

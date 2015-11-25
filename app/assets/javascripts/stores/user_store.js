@@ -1,10 +1,14 @@
 (function(root) {
   'use strict';
   var _users = [];
-  var CURRENT_USER_RECEIVED = "CURRENT_USER_RECEIVED";
-
+  var _organizer = {};
+  var CHANGE_EVENT = "CHANGE_EVENT";
+  var ORGANIZER_CHANGE_EVENT = "ORGANIZER_CHANGE_EVENT";
   var resetUsers = function (users) {
     _users = users;
+  };
+  var resetOrganizer = function (user) {
+    _organizer = user;
   };
 
   root.UserStore = $.extend({}, EventEmitter.prototype, {
@@ -14,17 +18,31 @@
     getUser: function () {
       return _.first(_users);
     },
+    getOrganizer: function () {
+      return $.extend({}, _organizer);
+    },
     addCurrentUserReceivedListener: function (callback) {
-      UserStore.on(CURRENT_USER_RECEIVED, callback);
+      UserStore.on(CHANGE_EVENT, callback);
     },
     removeCurrentUserReceivedListener: function (callback) {
-      UserStore.removeListener(CURRENT_USER_RECEIVED, callback);
+      UserStore.removeListener(CHANGE_EVENT, callback);
     },
+     addOrganizerChangeListener: function (callback) {
+      UserStore.on(ORGANIZER_CHANGE_EVENT, callback);
+    },
+    removeOrganizerChangeListener: function (callback) {
+      UserStore.removeListener(ORGANIZER_CHANGE_EVENT, callback);
+    },
+
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
-        case UserConstants.CURRENT_USER_RECEIVED:
-          resetUsers(payload.user);
-          UserStore.emit(CURRENT_USER_RECEIVED);
+        case UserConstants.USERS_RECEIVED:
+          resetUsers(payload.users);
+          UserStore.emit(CHANGE_EVENT);
+          break;
+        case UserConstants.ORGANIZER_RECEIVED:
+          resetOrganizer(payload.user);
+          UserStore.emit(ORGANIZER_CHANGE_EVENT);
           break;
       }
     })

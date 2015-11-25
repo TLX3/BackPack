@@ -23,17 +23,28 @@
         }
       });
     },
-    fetchUser: function (userParams) {
+    fetchOrganizer: function (userParams) {
       $.ajax({
         url: "/users/" + window.CURRENT_USER_ID,
         type: "GET",
         dataType: "json",
         data: {user: userParams},
         success: function (user) {
-          ApiActions.receiveSingleUser(user);
+          ApiActions.receiveOrganizer(user);
         }
       });
     },
+    fetchAllUsers: function (queryParams) {
+      $.ajax({
+        url: "/users",
+        type: "GET",
+        dataType: "json",
+        data: {user: queryParams},
+        success: function (users) {
+          ApiActions.receiveAllUsers(users);
+         }
+       });
+     },
     fetchCurrentUser: function () {
       $.ajax({
         url: "/users/" + window.CURRENT_USER_ID,

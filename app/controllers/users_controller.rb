@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @tags = Tag.all
   end
 
   def create
@@ -16,6 +17,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+  u_params = params[:user]
+    if u_params && user_params[:destination_id]
+      @users = Destination.find(user_params[:destination_id]).users
+    end
+  end
+
+   def show
+    if user_params && user_params[:showUserById]
+      @user = User.find(user_params[:showUserById])
+    end
+   end
+
   def update
     @user = current_user
       if @user.update(user_params)
@@ -28,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :bio, :picture_url, tag_ids: [])
+    params.require(:user).permit(:username, :password, :bio, :showUserById, :picture_url, :destination_id, tag_ids: [])
   end
 
 end

@@ -6,26 +6,33 @@
       return {user: {}};
     },
     componentDidMount: function () {
-      UserStore.addCurrentUserReceivedListener(this._onChange);
-      ApiUtil.fetchUser({id: this.props.author_id});
+      UserStore.addOrganizerChangeListener(this._onChange);
+      ApiUtil.fetchOrganizer({showUserById: this.props.author_id});
     },
     componentWillUnmount: function () {
-      UserStore.removeCurrentUserReceivedListener(this._onChange);
+      UserStore.removeOrganizerChangeListener(this._onChange);
+    },
+    componentWillReceiveProps: function (nextProps) {
+      ApiUtil.fetchOrganizer({showUserById: nextProps.author_id});
     },
     _onChange: function () {
-      this.setState({user: UserStore.getUser()});
+      this.setState({user: UserStore.getOrganizer()});
     },
     render: function () {
-      return (
-        <RB.Row>
-          <h4>{this.props.location}</h4>
-          <h4>Created on: {this.props.created}</h4>
-          <h4>Created by:</h4>
-            <Link to={"users/" + this.state.user.id}>
-              {this.state.user.username}
-            </Link>
-        </RB.Row>
-      );
+   var rendered = <RB.Row></RB.Row>;
+      if (this.props.title) {
+        rendered = (
+          <RB.Row>
+            <h4>Location: {this.props.location}</h4>
+            <h4>Created: {this.props.created}</h4>
+            <h4>Organizer:</h4>
+              <Link to={"users/" + this.state.user.id}>
+                {this.state.user.username}
+              </Link>
+          </RB.Row>
+        );
+      }
+      return rendered;
     }
   });
 }(this));

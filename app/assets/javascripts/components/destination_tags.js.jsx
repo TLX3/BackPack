@@ -11,6 +11,9 @@
     componentWillUnmount: function () {
       TagStore.removeChangeListener(this._onChange);
     },
+    componentWillReceiveProps: function (nextProps) {
+      ApiUtil.fetchAllTags({getCurrentDestinationTags: nextProps.id});
+    },
     _onChange: function () {
       this.setState({tags: TagStore.all()});
     },
