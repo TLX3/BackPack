@@ -16,7 +16,6 @@
       DestinationStore.removeChangeListener(this._onChange);
     },
     render: function () {
-      // var src = "http://cdni.condenast.co.uk/646x430/d_f/FregateIslandPrivate_cnt_12_646x430.jpg";
       var finished = [];
       var destinationsForRow = [];
       _.each(this.state.destinations, function (destination, idx) {
@@ -24,14 +23,17 @@
         if (destination.picture_url) {
             publicId = destination.picture_url;
         }
-        var url = $.cloudinary.url(publicId,{ width: 350, crop: 'fill', radius: 20});
+        var url = $.cloudinary.url(publicId,{ width: 350, height: 230,crop: 'fill'});
 
         destinationsForRow.push(
-          <div key={idx} className="col-md-4">
+          <div key={idx} className="col-md-4 with margin">
             <Link to={"destinations/" + destination.id}>
-              <img alt={destination.title} src={url}></img>
-            </Link>
+              <img alt={destination.title} src={url} className="focus">
                <h4>{destination.title}</h4>
+               Destination at:
+               <h5>{destination.location}</h5>
+              </img>
+            </Link>
           </div>
         );
         if ((idx + 1) % 3 === 0 || idx === this.state.destinations.length - 1) {
@@ -44,8 +46,7 @@
         }
       }, this);
       return (
-        <RB.Grid className="main-content">
-          <h3>Destinations:</h3>
+        <RB.Grid className="destinations">
           {finished}
         </RB.Grid>
       );

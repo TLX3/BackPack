@@ -24,6 +24,8 @@
         rendered = (
           <RB.Row>
             <h4>Location: {this.props.location}</h4>
+            <h4>Description: {this.props.description}</h4>
+            <h4>Cost: {this.props.cost} </h4>
             <h4>Created: {this.props.created}</h4>
             <h4>Organizer:</h4>
               <Link to={"users/" + this.state.user.id}>

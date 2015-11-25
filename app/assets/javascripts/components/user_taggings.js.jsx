@@ -36,8 +36,16 @@
             {
                 this.state.tags.map(function (tag, idx) {
                   return (
-                    <div></div>
-                  );
+                    <OverlayTrigger trigger="click" rootClose placement="left" key={idx}
+                     overlay={
+                       <Popover title="Destinations with this tag">
+                         <Button id={tag.name} onClick={this._removeTag}>
+                           Remove Tag <Glyphicon glyph="remove-circle"/>
+                         </Button>
+                       </Popover>}>
+                         <Button bsStyle="default">{tag.name}</Button>
+                   </OverlayTrigger>
+                 );
                 }, this)
               }
         </div>

@@ -35,7 +35,7 @@
                   <a href="#/profile" className="dropdown-toggle"
                     data-toggle="dropdown" role="button"
                     aria-haspopup="true" aria-expanded="false" id="dropdown">
-                      Welcome, user {window.CURRENT_USER_ID}
+                      Welcome, {window.CURRENT_USER_INFO.username}
                       <span className="caret"></span>
                   </a>
                   <ul className="dropdown-menu">
