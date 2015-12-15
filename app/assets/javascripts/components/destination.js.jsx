@@ -23,7 +23,7 @@
         if (destination.picture_url) {
             publicId = destination.picture_url;
         }
-        var url = $.cloudinary.url(publicId,{ width: 350, height: 230,crop: 'fill'});
+        var url = $.cloudinary.url(publicId,{ width: 200, height: 200,crop: 'fill'});
 
         destinationsForRow.push(
           <div key={idx} className="col-md-4 with margin">
